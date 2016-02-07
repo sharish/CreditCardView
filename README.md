@@ -2,11 +2,26 @@
 
 CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards while handling payment systems. The View looks like below :
 
-|     VISA FRONT VIEW         |        MASTER FRONT VIEW      |     AMEX FRONT VIEW       | 
-| --------------------------- | ----------------------------- | ------------------------- |
-| ![VISA FRONT][visa_front] | ![MASTER FRONT][master_front] | | ![AMEX FRONT][amex_front] |
-|     VISA BACK VIEW          |        MASTER BACK VIEW       |     AMEX BACK VIEW        | 
-| ![VISA FRONT][visa_front] | ![MASTER FRONT][master_back] | | ![AMEX FRONT][amex_front] |
+### How a MASTERCARD looks like with this View
+
+|     MASTER FRONT VIEW         |        MASTER BACK VIEW       | 
+| ----------------------------  | ----------------------------- | 
+| ![MASTER FRONT][master_front] | ![MASTER BACK][master_back]   |
+
+
+### How VISA card looks like with this View
+
+|     VISA FRONT VIEW           |        VISA BACK VIEW         | 
+| ----------------------------  | ----------------------------- | 
+| ![VISA FRONT][visa_front] | ![VISA BACK][visa_back]   |
+
+
+### How AMEX looks like with this View
+
+|     AMEX FRONT VIEW           |        AMEX BACK VIEW         | 
+| ----------------------------  | ----------------------------- | 
+| ![AMEX FRONT][amex_front] | ![AMEX BACK][amex_back]   |
+
 
 
 ## Creating a View
