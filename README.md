@@ -6,7 +6,7 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 | --------------------------- | ----------------------------- | ------------------------- |
 | ![VISA FRONT][visa_front] | ![MASTER FRONT][master_front] | | ![AMEX FRONT][amex_front] |
 |     VISA BACK VIEW          |        MASTER BACK VIEW       |     AMEX BACK VIEW        | 
-| ![VISA FRONT][visa_front] | ![MASTER FRONT][master_front] | | ![AMEX FRONT][amex_front] |
+| ![VISA FRONT][visa_front] | ![MASTER FRONT][master_back] | | ![AMEX FRONT][amex_front] |
 
 
 ## Creating a View
@@ -25,5 +25,13 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 
 
 
-[master_front]:https://cloud.githubusercontent.com/assets/13122232/12864941/adbca140-ccc3-11e5-8592-808dca8ea5ff.png 
+[master_front]:https://cloud.githubusercontent.com/assets/13122232/12871102/8b681fae-cd8e-11e5-8831-7b1fc1970194.png
+[master_back]:https://cloud.githubusercontent.com/assets/13122232/12871095/4ce9a234-cd8e-11e5-8c4e-384ce6874029.png
+[visa_front]:https://cloud.githubusercontent.com/assets/13122232/12871145/b57f92f2-cd90-11e5-8f36-086b227d06c3.png
+[amex_front]:https://cloud.githubusercontent.com/assets/13122232/12871146/c22cf74c-cd90-11e5-85e4-3ab45d50ba76.png
+[amex_back]:https://cloud.githubusercontent.com/assets/13122232/12871156/3124d570-cd91-11e5-8b71-f333e46192bb.png
+[visa_back]:https://cloud.githubusercontent.com/assets/13122232/12871157/31625b5c-cd91-11e5-87f7-f42a6404842b.png
+
+
+
 
