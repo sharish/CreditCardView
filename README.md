@@ -103,6 +103,9 @@ intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_
 
 startActivityForResult(intent, EDIT_CARD);
 ```
+
+### Sample Demo Video
+[![Demo Video](https://cloud.githubusercontent.com/assets/13122232/13137455/25a15b6a-d647-11e5-90d0-5c410e6f64f7.png)](https://youtu.be/uPJr0WrO-X0 "CreditCardView Demo Video")
                     
 
 [master_front]:https://cloud.githubusercontent.com/assets/13122232/12871102/8b681fae-cd8e-11e5-8831-7b1fc1970194.png
