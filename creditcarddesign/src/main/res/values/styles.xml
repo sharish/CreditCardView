@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <declare-styleable name="creditcard">
+        <attr name="cvv" format="integer" />
+        <attr name="card_holder_name" format="string" />
+        <attr name="card_expiration" format="string" />
+        <attr name="card_number" format="string" />
+        <attr name="card_side" format="enum">
+            <enum name="front" value="1" />
+            <enum name="back" value="0" />
+        </attr>
+
+
+    </declare-styleable>
+</resources>

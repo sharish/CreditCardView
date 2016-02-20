@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Paint the card with visa color card background -->
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp" />
+            <solid android:color="@color/purple_color" />
+        </shape>
+    </item>
+
+    <item >
+        <bitmap android:src="@drawable/sign_strip" android:gravity="center"  />
+
+    </item>
+
+    <item android:top="30dp" android:bottom="270dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/black" />
+        </shape>
+    </item>
+
+
+    <item>
+        <inset android:insetTop="300dp" android:insetBottom="20dp" android:insetRight="20dp" >
+            <bitmap android:src="@drawable/ic_billing_visa_logo" android:gravity="bottom|right" />
+        </inset>
+    </item>
+
+
+
+
+
+
+
+</layer-list>

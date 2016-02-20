@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CheckoutFlow</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="done">DONE</string>
+    <string name="card_holder_name_sample">JOHN MATTHEW</string>
+</resources>

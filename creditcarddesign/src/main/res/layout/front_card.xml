@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/front_card_container"
+    android:layout_width="300dp"
+    android:layout_height="180dp"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/front_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="50dp"
+        android:hint="XXXX XXXX XXXX XXXX"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/semi_white"
+        android:textSize="@dimen/text_size_normal"
+
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CARD HOLDER"
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@color/semi_white"
+                android:textSize="9sp"
+
+                />
+
+            <TextView
+                android:id="@+id/front_card_holder_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/card_holder_name_sample"
+                android:maxWidth="150dp"
+                android:minWidth="150dp"
+                android:paddingBottom="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_small"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/semi_white" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_expiry_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXPIRY"
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@color/semi_white"
+                android:textSize="9sp"
+
+                />
+
+            <TextView
+                android:id="@+id/front_card_expiry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="MM/YY"
+                android:maxWidth="150dp"
+                android:minWidth="150dp"
+                android:paddingBottom="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_small"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/semi_white" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

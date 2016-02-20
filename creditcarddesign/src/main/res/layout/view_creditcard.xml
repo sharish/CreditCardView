@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <io.codetail.widget.RevealLinearLayout
+        android:id="@+id/card_outline_container"
+        android:layout_width="@dimen/card_width_normal"
+        android:layout_height="@dimen/card_height_normal"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_xlarge"
+        android:orientation="horizontal">
+
+
+        <include layout="@layout/front_card_outline" />
+
+        <View
+            android:id="@+id/back_card_outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+
+
+    </io.codetail.widget.RevealLinearLayout>
+
+    <io.codetail.widget.RevealLinearLayout
+        android:id="@+id/card_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_xlarge"
+        android:orientation="horizontal">
+
+        <include layout="@layout/front_card" />
+        <include layout="@layout/back_card" />
+
+    </io.codetail.widget.RevealLinearLayout>
+
+</FrameLayout>

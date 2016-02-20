@@ -1,0 +1,39 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="padding_normal">12dp</dimen>
+    <dimen name="padding_xlarge">18dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_small">2dp</dimen>
+    <dimen name="text_size_normal_small">13sp</dimen>
+    <dimen name="text_size_normal">19sp</dimen>
+    <dimen name="text_size_normal_plus">20sp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_xlarge">20dp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+
+
+    <color name="semi_white">#88FFFFFF</color>
+    <color name="light_font">#FBFBFB</color>
+    <color name="grey_font">#ff9e9e9e</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="text_shadow_white">#FFFFFF</color>
+
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="cardview_default_elevation">1dp</dimen>
+
+
+    <dimen name="card_width_normal">300dp</dimen>
+    <dimen name="card_height_normal">180dp</dimen>
+    <dimen name="chip_width_normal">54dp</dimen>
+    <dimen name="chip_height_normal">36dp</dimen>
+    <dimen name="inner_chip_width_normal">28dp</dimen>
+    <dimen name="inner_chip_height_normal">16dp</dimen>
+    <dimen name="logo_width_normal">48dp</dimen>
+    <dimen name="logo_height_normal">48dp</dimen>
+    <dimen name="center_image_width">75dp</dimen>
+    <dimen name="center_image_height">75dp</dimen>
+
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="green_continue">#1fc055</color>
+    <color name="chip_color">#d4edfa</color>
+    <color name="chip_inner_color">#e0e4e4</color>
+    <color name="chip_yellow_color">#fbe191</color>
+    <color name="chip_yellow_inner_color">#eed280</color>
+
+    <color name="purple_color">#5515a9</color>
+    <color name="purple_color_gradient">#651dc4</color>
+
+    <color name="green_color">#108b4c</color>
+    <color name="green_color_gradient">#1caf57</color>
+
+    <color name="blue_color">#5D8BF2</color>
+    <color name="blue_color_gradient">#3545AE</color>
+
+    <color name="pink_color">#d04c84</color>
+    <color name="pink_color_gradient">#d04882</color>
+
+    <color name="default_color">#363434</color>
+    <color name="default_color_gradient">#434141</color>
+
+    <color name="brown_color">#800000</color>
+    <color name="brown_color_gradient">#A52A2A</color>
+
+
+
+
+</resources>

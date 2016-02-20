@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/front_card_outline"
+    android:layout_width="@dimen/card_width_normal"
+    android:layout_height="@dimen/card_height_normal"
+    android:background="@drawable/card_color_round_rect_default"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/chip_container"
+        android:layout_width="@dimen/chip_width_normal"
+        android:layout_height="@dimen/chip_height_normal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/chip">
+
+        <View
+            android:id="@+id/chip_inner_view"
+            android:layout_width="@dimen/inner_chip_width_normal"
+            android:layout_height="@dimen/inner_chip_height_normal"
+            android:layout_gravity="center"
+            android:background="@drawable/chip_inner" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="@dimen/logo_width_normal"
+        android:layout_height="@dimen/logo_height_normal"
+        android:layout_alignBottom="@+id/chip_container"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/chip_container"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_billing_visa_logo" />
+
+
+    <ImageView
+        android:id="@+id/logo_center_img"
+        android:layout_width="@dimen/center_image_width"
+        android:layout_height="@dimen/center_image_height"
+        android:layout_centerInParent="true"
+        tools:src="@drawable/img_amex_center_face"
+
+
+        />
+
+
+</RelativeLayout>

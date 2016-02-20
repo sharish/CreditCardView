@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back_card_container"
+    android:layout_width="300dp"
+    android:layout_height="180dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@drawable/card_color_round_rect_pink"
+    android:visibility="gone"
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@android:color/black"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/back_card_cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/sign_strip"
+        android:layout_margin="@dimen/margin_small"
+        android:textColor="@android:color/black"
+        tools:text="522"
+        android:gravity="center|right"
+        android:paddingRight="12dp"
+        />
+
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_billing_mastercard_logo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        />
+
+</RelativeLayout>
