@@ -10,10 +10,11 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 | ----------------------------  | ----------------------------- | 
 | ![MASTER FRONT][master_front] | ![MASTER BACK][master_back]   |
 
-* CardEditActivity which behaves as below.
+* CardEditActivity which behaves as below. 
 
-![](https://d13yacurqjgara.cloudfront.net/users/484057/screenshots/2177105/checkout_generic.gif)
+<img src='https://d13yacurqjgara.cloudfront.net/users/484057/screenshots/2177105/checkout_generic.gif' width='600' height='350' />
 
+(GIF from - <https://dribbble.com/shots/2177105-Checkout-Flow-Card> )
 
 
 
