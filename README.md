@@ -1,30 +1,23 @@
 # CreditCardView
 
-CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards while handling payment systems. The View looks like below :
+### Intro
 
-### How a MASTERCARD looks like with this View
+CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards while handling payment systems.  The library consists of 
 
-|     MASTER FRONT VIEW         |        MASTER BACK VIEW       | 
+* CreditCardView which looks like below
+
+|     FRONT VIEW                |        BACK VIEW              | 
 | ----------------------------  | ----------------------------- | 
 | ![MASTER FRONT][master_front] | ![MASTER BACK][master_back]   |
 
+* CardEditActivity which behaves as below.
 
-### How VISA card looks like with this View
-
-|     VISA FRONT VIEW           |        VISA BACK VIEW         | 
-| ----------------------------  | ----------------------------- | 
-| ![VISA FRONT][visa_front] | ![VISA BACK][visa_back]   |
-
-
-### How AMEX looks like with this View
-
-|     AMEX FRONT VIEW           |        AMEX BACK VIEW         | 
-| ----------------------------  | ----------------------------- | 
-| ![AMEX FRONT][amex_front] | ![AMEX BACK][amex_back]   |
+![](https://d13yacurqjgara.cloudfront.net/users/484057/screenshots/2177105/checkout_generic.gif)
 
 
 
-## Creating a View
+
+## Creating a CreditCardView
 
 ##### XML
 ```xml
@@ -56,7 +49,7 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 
 ```
 
-## Getting a Card information from the User
+## Calling CardEditActivity to fetch new card details from User
 
 To get a card information from the user, you can simply start the CardEditActivity as below and get the details of the card
 from onActivityResult() in your activity.
@@ -89,7 +82,7 @@ public void onActivityResult(int reqCode, int resultCode, Intent data) {
 ```
 
 
-## Editing a Card infomation
+## Prefilling CardEditActivity with details of existing card.
 
 To edit the card details, you can start CardEditActivity passing the extras and get back the edited card information in onActivityResult() method of your activity just like above.
 ```java
@@ -106,7 +99,38 @@ startActivityForResult(intent, EDIT_CARD);
 
 ### Sample Demo Video
 [![Demo Video](https://cloud.githubusercontent.com/assets/13122232/13137455/25a15b6a-d647-11e5-90d0-5c410e6f64f7.png)](https://youtu.be/uPJr0WrO-X0 "CreditCardView Demo Video")
-                    
+
+
+## Adding to your project
+
+- Add the following configuration in your build.gradle file.
+
+```gradle
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.github.cooltechworks:CreditCardView:v1.0'
+}
+```
+- Add the following activity to your AndroidManifest.xml
+
+```xml
+ <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity"
+            android:screenOrientation="portrait"
+            />
+```
+
+Design Credits
+============
+* Ramakrishna - <https://dribbble.com/RamakrishnaUX>
+
+Developed By
+============
+
+* Harish Sridharan - <harish.sridhar@gmail.com>
 
 [master_front]:https://cloud.githubusercontent.com/assets/13122232/12871102/8b681fae-cd8e-11e5-8831-7b1fc1970194.png
 [master_back]:https://cloud.githubusercontent.com/assets/13122232/12871095/4ce9a234-cd8e-11e5-8c4e-384ce6874029.png
