@@ -2,6 +2,7 @@ package com.cooltechworks.creditcarddesign.pager;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,9 @@ public class CardNameFragment extends CreditCardFragment {
     public void afterTextChanged(Editable s) {
 
         onEdit(s.toString());
-        if(s.length() == 16) {
+
+
+        if(s.length() == getResources().getInteger(R.integer.lyt_card_name_card_size)) {
             onComplete();
         }
     }

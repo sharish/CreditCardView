@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/infrj08/Desktop/CreditCardView_LIB/CreditCardView/creditcarddesign/src/main/res/values-pt-rBR/strings.xml -->
+    <eat-comment/>
+    <string name="done">FINALIZAR</string>
+    <string name="lyt_card_expiry">VALIDADE DO CARTÃO</string>
+    <string name="lyt_card_name_card">NOME NO CARTÃO</string>
+    <string name="lyt_card_number_card">NUMERO DO CARTÃO</string>
+    <string name="next">PROXIMO</string>
+    <string name="previous">ANTERIOR</string>
+    <string name="requerid_field_expiry_card_expired">Cartão Invalido</string>
+    <string name="requerid_field_expiry_invalid_month">Mês Invalido</string>
+    <string name="viewcard_expiry">VALIDADE</string>
+    <string name="viewcard_holder">CARTÃO NOME</string>
+</resources>

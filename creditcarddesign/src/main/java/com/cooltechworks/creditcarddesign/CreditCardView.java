@@ -234,8 +234,9 @@ public class CreditCardView extends FrameLayout {
     public void setCardHolderName(String cardHolderName) {
 
         cardHolderName = cardHolderName == null ? "" : cardHolderName;
-        if(cardHolderName.length() > 16) {
-            cardHolderName = cardHolderName.substring(0,16);
+
+        if(cardHolderName.length() > getResources().getInteger(R.integer.lyt_card_name_card_size)) {
+            cardHolderName = cardHolderName.substring(0,getResources().getInteger(R.integer.lyt_card_name_card_size));
         }
 
         this.mCardHolderName = cardHolderName;

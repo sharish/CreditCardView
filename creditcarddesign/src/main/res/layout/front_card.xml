@@ -40,7 +40,7 @@
                 android:id="@+id/card_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CARD HOLDER"
+                android:text="@string/viewcard_holder"
                 android:textColor="@android:color/darker_gray"
                 android:textColorHint="@color/semi_white"
                 android:textSize="9sp"
@@ -69,16 +69,17 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/card_expiry_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EXPIRY"
+                android:text="@string/viewcard_expiry"
                 android:textColor="@android:color/darker_gray"
                 android:textColorHint="@color/semi_white"
                 android:textSize="9sp"

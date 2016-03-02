@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/chip_yellow_color"/>
+    <corners android:radius="4dp" />
+
+
+</shape><!-- From: file:/C:/Users/infrj08/Desktop/CreditCardView_LIB/CreditCardView/creditcarddesign/src/main/res/drawable/chip_yellow.xml -->
