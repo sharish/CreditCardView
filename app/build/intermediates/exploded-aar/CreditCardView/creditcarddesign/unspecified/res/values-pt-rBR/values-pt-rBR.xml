@@ -8,7 +8,7 @@
     <string name="lyt_card_number_card">NUMERO DO CARTÃO</string>
     <string name="next">PROXIMO</string>
     <string name="previous">ANTERIOR</string>
-    <string name="requerid_field_expiry_card_expired">Cartão Invalido</string>
+    <string name="requerid_field_expiry_card_expired">Cartão Expirado</string>
     <string name="requerid_field_expiry_invalid_month">Mês Invalido</string>
     <string name="viewcard_expiry">VALIDADE</string>
     <string name="viewcard_holder">CARTÃO NOME</string>
