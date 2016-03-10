@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NAME ON CARD"
+                android:text="@string/lyt_card_name_card"
 
                 />
 
@@ -40,7 +40,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:hint="@string/card_holder_name_sample"
                 android:inputType="textCapCharacters|textPersonName"
-                android:maxLength="16"
+                android:maxLength="@integer/lyt_card_name_card_size"
                 android:text="" />
 
         </LinearLayout>

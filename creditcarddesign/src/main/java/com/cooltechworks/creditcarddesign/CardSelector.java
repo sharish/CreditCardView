@@ -18,7 +18,8 @@ public class CardSelector {
     private int mResCenterImageId;
     private int mResLogoId;
     
-    public CardSelector(int mDrawableCard, int mDrawableChipOuter, int mDrawableChipInner, int mDrawableCenterImage, int logoId) {
+    public CardSelector(int mDrawableCard, int mDrawableChipOuter, int mDrawableChipInner, int mDrawableCenterImage, int logoId)
+    {
         this.mResCardId = mDrawableCard;
         this.mResChipOuterId = mDrawableChipOuter;
         this.mResChipInnerId = mDrawableChipInner;
@@ -70,7 +71,8 @@ public class CardSelector {
 
     public static CardSelector selectCard(char cardFirstChar) {
 
-        switch (cardFirstChar) {
+        switch (cardFirstChar)
+        {
             case '4':
                 return VISA;
             case '5':
@@ -84,12 +86,10 @@ public class CardSelector {
 
     public static CardSelector selectCard(String cardNumber) {
 
-        if(cardNumber != null && cardNumber.length() >= 3) {
+        if(cardNumber != null && cardNumber.length() >= 3)
+        {
+
             CardSelector selector = selectCard(cardNumber.charAt(0));
-            
-            if(cardNumber.startsWith(AMEX_PREFIX)) {
-                return AMEX;
-            }
 
             if(selector != DEFAULT) {
 
@@ -105,7 +105,6 @@ public class CardSelector {
                 int chipIndex = hash % 3;
                 int chipOuter[] = { R.drawable.chip, R.drawable.chip_yellow, android.R.color.transparent};
                 int chipInner[] = { R.drawable.chip_inner, R.drawable.chip_yellow_inner,android.R.color.transparent};
-
 
                 selector.setResCardId(drawables[index]);
                 selector.setResChipOuterId(chipOuter[chipIndex]);

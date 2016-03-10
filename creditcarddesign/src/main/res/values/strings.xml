@@ -4,8 +4,33 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!--STRING IN BUTTON-->
+
     <string name="next">NEXT</string>
     <string name="previous">PREVIOUS</string>
     <string name="done">DONE</string>
+
+    <!--STRING IN VIEW CARD-->
+
+    <string name="viewcard_holder">CARD HOLDER</string>
+    <string name="viewcard_expiry">EXPIRY</string>
+
+
+    <!--STRING IN LAYOUT FIELD-->
+    <string name="lyt_card_expiry">CARD EXPIRY</string>
+    <string name="lyt_card_name_card">NAME ON CARD</string>
+    <string name="lyt_card_number_card">CARD NUMBER</string>
+
+
+    <!--REQUERID MESSAGEN-->
+
+        <!--FIELD VIEW = CardExpiryFragment-->
+            <string name="requerid_field_expiry_invalid_month">Invalid month</string>
+            <string name="requerid_field_expiry_card_expired">Card expired</string>
+
+
     <string name="card_holder_name_sample">JOHN MATTHEW</string>
+
+
+
 </resources>
