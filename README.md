@@ -1,6 +1,8 @@
 # CreditCardView
 
-### Intro
+
+Intro
+------
 
 CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards while handling payment systems.  The library consists of 
 
@@ -18,8 +20,8 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 
 
 
-## Creating a CreditCardView
-
+Creating a CreditCardView
+--------------------------
 ##### XML
 ```xml
 <com.cooltechworks.creditcarddesign.CreditCardView
@@ -34,6 +36,7 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 ```
 
 ##### JAVA
+
 ```java
 
    CreditCardView creditCardView = new CreditCardView(getContext());
@@ -50,7 +53,8 @@ CreditCardView is a rich UX custom view to accomodate Credit Cards / Debit Cards
 
 ```
 
-## Calling CardEditActivity to fetch new card details from User
+Fetch new card info
+---------------------
 
 To get a card information from the user, you can simply start the CardEditActivity as below and get the details of the card
 from onActivityResult() in your activity.
@@ -83,7 +87,8 @@ public void onActivityResult(int reqCode, int resultCode, Intent data) {
 ```
 
 
-## Prefilling CardEditActivity with details of existing card.
+Edit existing card
+------------------
 
 To edit the card details, you can start CardEditActivity passing the extras and get back the edited card information in onActivityResult() method of your activity just like above.
 ```java
@@ -98,11 +103,13 @@ intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_
 startActivityForResult(intent, EDIT_CARD);
 ```
 
-### Sample Demo Video
+Sample Demo Video
+------------------
 [![Demo Video](https://cloud.githubusercontent.com/assets/13122232/13137455/25a15b6a-d647-11e5-90d0-5c410e6f64f7.png)](https://youtu.be/uPJr0WrO-X0 "CreditCardView Demo Video")
 
 
-## Adding to your project
+Adding to your project
+------------------------
 
 - Add the following configuration in your build.gradle file.
 
@@ -125,16 +132,23 @@ dependencies {
 ```
 
 Design Credits
-============
+--------------
 * Ramakrishna - <https://dribbble.com/RamakrishnaUX>
 
 Developed By
-============
+------------
 
 * Harish Sridharan - <harish.sridhar@gmail.com>
 
+Acknowledgements
+----------------
+
+* Michele Lacorte for his [Swipeable Cards][1] involving CreditCardView
+
+<img src='https://camo.githubusercontent.com/34d3793e2e1c9d3def671d01704a2474c6dc103c/687474703a2f2f692e67697068792e636f6d2f336f726e6a514c4439354f737034716c6d382e676966'  />
+
 License
-=======
+--------
 ```
 Copyright 2016 Harish Sridharan
 
@@ -158,7 +172,7 @@ limitations under the License.
 [amex_front]:https://cloud.githubusercontent.com/assets/13122232/12871146/c22cf74c-cd90-11e5-85e4-3ab45d50ba76.png
 [amex_back]:https://cloud.githubusercontent.com/assets/13122232/12871156/3124d570-cd91-11e5-8b71-f333e46192bb.png
 [visa_back]:https://cloud.githubusercontent.com/assets/13122232/12871157/31625b5c-cd91-11e5-87f7-f42a6404842b.png
-
+[1]: https://github.com/michelelacorte/SwipeableCard
 
 
 
