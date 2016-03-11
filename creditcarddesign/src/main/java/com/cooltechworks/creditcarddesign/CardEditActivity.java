@@ -224,7 +224,6 @@ public class CardEditActivity extends AppCompatActivity {
 
             pager.setCurrentItem(currentIndex + 1);
         } else {
-//            onDoneTapped();
             // completed the card entry.
             setKeyboardVisibility(false);
         }
@@ -233,13 +232,6 @@ public class CardEditActivity extends AppCompatActivity {
     }
 
     private void onDoneTapped() {
-
-//        setKeyboardVisibility(false);
-//        LinearLayout parent = (LinearLayout) findViewById(R.id.parent);
-//        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) parent.getLayoutParams();
-//        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-//        parent.setLayoutParams(layoutParams);
-
 
         Intent intent = new Intent();
 

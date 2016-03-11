@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
 import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.cooltechworks.creditcarddesign.R;
 
@@ -76,12 +75,9 @@ public class CardExpiryFragment extends CreditCardFragment {
                 if(yy + millenium < currentYear) {
                     cardExpiryView.setError("Card expired");
                     return;
-                }
-                else if(yy + millenium == currentYear) {
-                    if(mm < currentMonth) {
-                        cardExpiryView.setError("Card expired");
-                        return;
-                    }
+                } else if (yy + millenium == currentYear && mm < currentMonth) {
+                    cardExpiryView.setError("Card expired");
+                    return;
                 }
             }
 

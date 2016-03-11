@@ -69,11 +69,8 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
     public void onActionComplete(CreditCardFragment fragment) {
 
         int index = getIndex(fragment);
-        if (index >= 0) {
-
-            if (mCardEntryCompleteListener != null) {
-                mCardEntryCompleteListener.onCardEntryComplete(index);
-            }
+        if (index >= 0 && mCardEntryCompleteListener != null) {
+            mCardEntryCompleteListener.onCardEntryComplete(index);
         }
 
     }
@@ -100,11 +97,8 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
 
         int index = getIndex(fragment);
 
-        if (index >= 0) {
-
-            if (mCardEntryCompleteListener != null) {
-                mCardEntryCompleteListener.onCardEntryEdit(index, edit);
-            }
+        if (index >= 0 && mCardEntryCompleteListener != null) {
+            mCardEntryCompleteListener.onCardEntryEdit(index, edit);
         }
     }
 }
