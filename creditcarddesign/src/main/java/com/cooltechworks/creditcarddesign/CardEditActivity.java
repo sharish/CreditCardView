@@ -277,7 +277,11 @@ public class CardEditActivity extends AppCompatActivity {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
-
+    
+    @Override
+    public void onBackPressed() {
+        this.finish();
+    }
 
 
 }
