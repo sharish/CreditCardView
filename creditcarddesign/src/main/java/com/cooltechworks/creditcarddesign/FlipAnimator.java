@@ -127,9 +127,7 @@ public class FlipAnimator extends Animation {
         else {
         	camera.rotateX(degrees);
         }
-
         
-//        camera.rotateY(degrees);
         camera.getMatrix(matrix);
         camera.restore();
 
