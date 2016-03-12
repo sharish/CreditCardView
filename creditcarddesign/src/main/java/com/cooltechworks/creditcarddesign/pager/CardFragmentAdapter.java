@@ -27,11 +27,6 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
 
     private ICardEntryCompleteListener mCardEntryCompleteListener;
 
-    public void setOnCardEntryCompleteListener(ICardEntryCompleteListener listener) {
-        this.mCardEntryCompleteListener = listener;
-    }
-
-
     public CardFragmentAdapter(FragmentManager fm, Bundle args) {
         super(fm);
 
@@ -52,6 +47,10 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
         mCardExpiryFragment.setActionListener(this);
         mCardCVVFragment.setActionListener(this);
 
+    }
+
+    public void setOnCardEntryCompleteListener(ICardEntryCompleteListener listener) {
+        this.mCardEntryCompleteListener = listener;
     }
 
     @Override
