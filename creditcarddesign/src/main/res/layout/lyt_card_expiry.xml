@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:hint="MM/YY"
+                android:hint="@string/lyt_card_expiry_hint"
                 android:inputType="number"
                 android:maxLength="5"
                 android:text="" />
