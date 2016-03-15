@@ -307,8 +307,8 @@ public class CreditCardView extends FrameLayout {
         }
 
         int duration = 1000;
-        int cx = (mRevealView.getLeft());
-        int cy = (mRevealView.getTop());
+        int cx = mRevealView.getLeft();
+        int cy = mRevealView.getTop();
 
         int radius = Math.max(mRevealView.getWidth(), mRevealView.getHeight()) * 4;
 
