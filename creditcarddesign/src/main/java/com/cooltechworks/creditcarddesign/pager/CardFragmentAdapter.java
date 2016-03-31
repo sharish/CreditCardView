@@ -20,10 +20,10 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
         void onCardEntryEdit(int currentIndex, String entryValue);
     }
 
-    private CardNumberFragment mCardNumberFragment;
-    private CardExpiryFragment mCardExpiryFragment;
-    private CardCVVFragment mCardCVVFragment;
-    private CardNameFragment mCardNameFragment;
+    private final CardNumberFragment mCardNumberFragment;
+    private final CardExpiryFragment mCardExpiryFragment;
+    private final CardCVVFragment mCardCVVFragment;
+    private final CardNameFragment mCardNameFragment;
 
     private ICardEntryCompleteListener mCardEntryCompleteListener;
 
