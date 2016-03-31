@@ -93,7 +93,7 @@ public class CardSelector {
 
             if(selector != DEFAULT) {
 
-                int drawables[] = { R.drawable.card_color_round_rect_brown, R.drawable.card_color_round_rect_green, R.drawable.card_color_round_rect_pink, R.drawable.card_color_round_rect_purple, R.drawable.card_color_round_rect_blue};
+                int[] drawables = { R.drawable.card_color_round_rect_brown, R.drawable.card_color_round_rect_green, R.drawable.card_color_round_rect_pink, R.drawable.card_color_round_rect_purple, R.drawable.card_color_round_rect_blue};
                 int hash = cardNumber.substring(0,3).hashCode();
 
                 if(hash<0) {
@@ -103,8 +103,8 @@ public class CardSelector {
                 int index = hash % drawables.length;
 
                 int chipIndex = hash % 3;
-                int chipOuter[] = { R.drawable.chip, R.drawable.chip_yellow, android.R.color.transparent};
-                int chipInner[] = { R.drawable.chip_inner, R.drawable.chip_yellow_inner,android.R.color.transparent};
+                int[] chipOuter = { R.drawable.chip, R.drawable.chip_yellow, android.R.color.transparent};
+                int[] chipInner = { R.drawable.chip_inner, R.drawable.chip_yellow_inner,android.R.color.transparent};
 
 
                 selector.setResCardId(drawables[index]);
