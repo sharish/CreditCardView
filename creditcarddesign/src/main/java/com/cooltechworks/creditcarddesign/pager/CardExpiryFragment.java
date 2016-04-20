@@ -12,6 +12,7 @@ import com.cooltechworks.creditcarddesign.R;
 import java.util.Calendar;
 
 import static com.cooltechworks.creditcarddesign.CreditCardUtils.EXTRA_CARD_EXPIRY;
+import static com.cooltechworks.creditcarddesign.CreditCardUtils.EXTRA_VALIDATE_EXPIRY_DATE;
 
 /**
  * Created by sharish on 9/1/15.
@@ -19,6 +20,9 @@ import static com.cooltechworks.creditcarddesign.CreditCardUtils.EXTRA_CARD_EXPI
 public class CardExpiryFragment extends CreditCardFragment {
 
     EditText cardExpiryView;
+
+    private boolean mValidateCard = true;
+
     public CardExpiryFragment() {
 
     }
@@ -29,8 +33,16 @@ public class CardExpiryFragment extends CreditCardFragment {
         cardExpiryView = (EditText) v.findViewById(R.id.card_expiry);
 
         String expiry = "";
-        if(getArguments() != null && getArguments().containsKey(EXTRA_CARD_EXPIRY)) {
-            expiry = getArguments().getString(EXTRA_CARD_EXPIRY);
+
+        Bundle args = getArguments();
+
+        if(args != null) {
+
+            if(args.containsKey(EXTRA_CARD_EXPIRY)) {
+                expiry = getArguments().getString(EXTRA_CARD_EXPIRY);
+            }
+
+            mValidateCard = args.getBoolean(EXTRA_VALIDATE_EXPIRY_DATE, true);
         }
 
         if(expiry == null) {
@@ -49,35 +61,40 @@ public class CardExpiryFragment extends CreditCardFragment {
 
         String text = s.toString().replace(CreditCardUtils.SLASH_SEPERATOR, "");
 
-        String month="", year="";
+        String month, year="";
         if(text.length() >= 2) {
             month = text.substring(0, 2);
-            int mm = Integer.parseInt(month);
 
-            if(mm <= 0 || mm >= 13) {
-                cardExpiryView.setError("Invalid month");
-                return;
+            if(text.length() > 2) {
+                year = text.substring(2);
             }
 
-            year = text.substring(2);
+            if(mValidateCard) {
+                int mm = Integer.parseInt(month);
 
-            if(text.length() >= 4) {
-
-                int yy = Integer.parseInt(year);
-
-                final Calendar calendar = Calendar.getInstance();
-                int currentYear =calendar.get(Calendar.YEAR);
-                int currentMonth = calendar.get(Calendar.MONTH) + 1;
-
-                int millenium = (currentYear / 1000) * 1000;
-
-
-                if(yy + millenium < currentYear) {
-                    cardExpiryView.setError("Card expired");
+                if (mm <= 0 || mm >= 13) {
+                    cardExpiryView.setError("Invalid month");
                     return;
-                } else if (yy + millenium == currentYear && mm < currentMonth) {
-                    cardExpiryView.setError("Card expired");
-                    return;
+                }
+
+                if (text.length() >= 4) {
+
+                    int yy = Integer.parseInt(year);
+
+                    final Calendar calendar = Calendar.getInstance();
+                    int currentYear = calendar.get(Calendar.YEAR);
+                    int currentMonth = calendar.get(Calendar.MONTH) + 1;
+
+                    int millenium = (currentYear / 1000) * 1000;
+
+
+                    if (yy + millenium < currentYear) {
+                        cardExpiryView.setError("Card expired");
+                        return;
+                    } else if (yy + millenium == currentYear && mm < currentMonth) {
+                        cardExpiryView.setError("Card expired");
+                        return;
+                    }
                 }
             }
 
@@ -117,5 +134,21 @@ public class CardExpiryFragment extends CreditCardFragment {
         if(isAdded()) {
             cardExpiryView.selectAll();
         }
+    }
+
+
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putBoolean(EXTRA_VALIDATE_EXPIRY_DATE, mValidateCard);
+        super.onSaveInstanceState(outState);
+    }
+
+    public void onActivityCreated(Bundle instate) {
+
+        if(instate != null) {
+            mValidateCard = instate.getBoolean(EXTRA_VALIDATE_EXPIRY_DATE, mValidateCard);
+        }
+
+        super.onActivityCreated(instate);
     }
 }

@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_NUMBER, cardNumber);
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_EXPIRY, expiry);
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_FRONT);
+                intent.putExtra(CreditCardUtils.EXTRA_VALIDATE_EXPIRY_DATE, false);
+
 
                 startActivityForResult(intent, index);
 

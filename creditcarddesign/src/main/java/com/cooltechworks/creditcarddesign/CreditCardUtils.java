@@ -20,10 +20,10 @@ public class CreditCardUtils {
     public static final String EXTRA_CARD_EXPIRY = "card_expiry";
     public static final String EXTRA_CARD_HOLDER_NAME = "card_holder_name";
     public static final String EXTRA_CARD_SHOW_CARD_SIDE = "card_side";
+    public static final String EXTRA_VALIDATE_EXPIRY_DATE = "expiry_date";
+
+
     public static final int CARD_SIDE_FRONT = 1,CARD_SIDE_BACK=0;
-
-
-
 
     public static final String SPACE_SEPERATOR = " ";
     public static final String DOUBLE_SPACE_SEPERATOR = "  ";
