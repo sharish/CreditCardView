@@ -99,6 +99,8 @@ intent.putExtra(CreditCardUtils.EXTRA_CARD_HOLDER_NAME, cardHolderName);
 intent.putExtra(CreditCardUtils.EXTRA_CARD_NUMBER, cardNumber);
 intent.putExtra(CreditCardUtils.EXTRA_CARD_EXPIRY, expiry);
 intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_BACK);
+intent.putExtra(CreditCardUtils.EXTRA_VALIDATE_EXPIRY_DATE, true); // pass "false" to discard expiry date validation.
+
 
 startActivityForResult(intent, EDIT_CARD);
 ```
