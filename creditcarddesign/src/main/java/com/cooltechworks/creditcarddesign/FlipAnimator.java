@@ -25,30 +25,15 @@ public class FlipAnimator extends Animation {
     private boolean visibilitySwapped;
 
     private int rotationDirection = DIRECTION_X;
-    public int getRotationDirection() {
-		return rotationDirection;
-	}
 
-	public void setRotationDirection(int rotationDirection) {
-		this.rotationDirection = rotationDirection;
-	}
+    private int translateDirection = DIRECTION_Z;
 
-	public int getTranslateDirection() {
-		return translateDirection;
-	}
-
-	public void setTranslateDirection(int translateDirection) {
-		this.translateDirection = translateDirection;
-	}
-
-	private int translateDirection = DIRECTION_Z;
-    
     /**
      * Creates a 3D flip animation between two views. If forward is true, its
      * assumed that view1 is "visible" and view2 is "gone" before the animation
      * starts. At the end of the animation, view1 will be "gone" and view2 will
      * be "visible". If forward is false, the reverse is assumed.
-     * 
+     *
      * @param fromView First view in the transition.
      * @param toView Second view in the transition.
      * @param centerX The center of the views in the x-axis.
@@ -64,6 +49,22 @@ public class FlipAnimator extends Animation {
         setFillAfter(true);
         setInterpolator(new AccelerateDecelerateInterpolator());
     }
+
+    public int getRotationDirection() {
+		return rotationDirection;
+	}
+
+	public void setRotationDirection(int rotationDirection) {
+		this.rotationDirection = rotationDirection;
+	}
+
+	public int getTranslateDirection() {
+		return translateDirection;
+	}
+
+	public void setTranslateDirection(int translateDirection) {
+		this.translateDirection = translateDirection;
+	}
 
     public void reverse() {
         forward = false;

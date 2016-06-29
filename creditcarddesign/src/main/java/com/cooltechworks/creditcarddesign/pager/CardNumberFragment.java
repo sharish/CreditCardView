@@ -19,10 +19,11 @@ import static com.cooltechworks.creditcarddesign.CreditCardUtils.MAX_LENGTH_CARD
  */
 public class CardNumberFragment extends  CreditCardFragment {
 
+    EditText mCardNumberView;
+
     public CardNumberFragment() {
 
     }
-    EditText mCardNumberView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle state) {
 

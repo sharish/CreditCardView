@@ -23,23 +23,6 @@ import io.codetail.animation.ViewAnimationUtils;
  */
 public class CreditCardView extends FrameLayout {
 
-
-    public String getCardHolderName() {
-        return mCardHolderName;
-    }
-
-    public String getCVV() {
-        return mCVV;
-    }
-
-    public String getExpiry() {
-        return mExpiry;
-    }
-
-    interface ICustomCardSelector {
-        CardSelector getCardSelector(String cardNumber);
-    }
-
     private static final int TEXTVIEW_CARD_HOLDER_ID = R.id.front_card_holder_name;
     private static final int TEXTVIEW_CARD_EXPIRY_ID = R.id.front_card_expiry;
     private static final int TEXTVIEW_CARD_NUMBER_ID = R.id.front_card_number;
@@ -56,7 +39,6 @@ public class CreditCardView extends FrameLayout {
 
     private String mCardHolderName, mCVV, mExpiry;
 
-
     public CreditCardView(Context context) {
         super(context);
         init();
@@ -72,6 +54,22 @@ public class CreditCardView extends FrameLayout {
         init(attrs);
     }
 
+    public String getCardHolderName() {
+        return mCardHolderName;
+    }
+
+    public String getCVV() {
+        return mCVV;
+    }
+
+    public String getExpiry() {
+        return mExpiry;
+    }
+
+    interface ICustomCardSelector {
+        CardSelector getCardSelector(String cardNumber);
+    }
+    
     private void init() {
 
         mCurrentDrawable = R.drawable.card_color_round_rect_default;
