@@ -122,7 +122,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.cooltechworks:CreditCardView:v1.0'
+    compile 'com.github.cooltechworks:CreditCardView:v1.0.1'
 }
 ```
 - Add the following activity to your AndroidManifest.xml
