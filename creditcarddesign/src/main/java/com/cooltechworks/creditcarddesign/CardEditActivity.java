@@ -92,6 +92,7 @@ public class CardEditActivity extends AppCompatActivity {
         mCardNumber = bundle.getString(EXTRA_CARD_NUMBER);
 
 
+
         mCreditCardView.setCVV(mCVV);
         mCreditCardView.setCardHolderName(mCardHolderName);
         mCreditCardView.setCardExpiry(mExpiry);
@@ -181,6 +182,11 @@ public class CardEditActivity extends AppCompatActivity {
         });
 
         pager.setAdapter(mCardAdapter);
+
+        int cardSide = getIntent().getIntExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_FRONT);
+        if(cardSide == CreditCardUtils.CARD_SIDE_BACK) {
+           pager.setCurrentItem(2);
+        }
     }
 
     public void onSaveInstanceState(Bundle outState) {

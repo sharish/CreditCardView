@@ -29,7 +29,6 @@ public class CardNumberFragment extends  CreditCardFragment {
 
         View v = inflater.inflate(R.layout.lyt_card_number, group, false);
         mCardNumberView = (EditText) v.findViewById(R.id.card_number_field);
-        mCardNumberView.addTextChangedListener(this);
 
         String number = "";
 
@@ -42,6 +41,7 @@ public class CardNumberFragment extends  CreditCardFragment {
         }
 
         mCardNumberView.setText(number);
+        mCardNumberView.addTextChangedListener(this);
 
         return v;
     }

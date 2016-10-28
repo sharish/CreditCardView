@@ -28,8 +28,6 @@ public class CardCVVFragment extends CreditCardFragment  {
 
         View v = inflater.inflate(R.layout.lyt_card_cvv, group,false);
         mCardCVVView = (EditText) v.findViewById(R.id.card_cvv);
-        mCardCVVView.addTextChangedListener(this);
-
 
         String cvv = "";
         if(getArguments() != null && getArguments().containsKey(EXTRA_CARD_CVV)) {
@@ -41,6 +39,7 @@ public class CardCVVFragment extends CreditCardFragment  {
         }
 
         mCardCVVView.setText(cvv);
+        mCardCVVView.addTextChangedListener(this);
 
         return v;
     }
