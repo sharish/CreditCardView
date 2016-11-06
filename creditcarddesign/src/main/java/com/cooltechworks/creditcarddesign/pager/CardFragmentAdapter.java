@@ -100,4 +100,10 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
             mCardEntryCompleteListener.onCardEntryEdit(index, edit);
         }
     }
+
+    public void setMaxCVV(int maxCVV) {
+        if (mCardCVVFragment != null) {
+            mCardCVVFragment.setMaxCVV(maxCVV);
+        }
+    }
 }
