@@ -98,6 +98,11 @@ public class CardEditActivity extends AppCompatActivity {
         mCreditCardView.setCardExpiry(mExpiry);
         mCreditCardView.setCardNumber(mCardNumber);
 
+        if (CardSelector.selectCard(mCardNumber) == CardSelector.AMEX)
+            mCardAdapter.setMaxCVV(4);
+        else
+            mCardAdapter.setMaxCVV(3);
+
 
 
         if(mCardAdapter != null) {
@@ -131,7 +136,6 @@ public class CardEditActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
 
                 mCardAdapter.focus(position);
-
                 if (position == 2) {
                     mCreditCardView.showBack();
                 } else if ((position == 1 && mLastPageSelected == 2) || position == 3) {
@@ -164,6 +168,12 @@ public class CardEditActivity extends AppCompatActivity {
 
                         mCardNumber = entryValue.replace(CreditCardUtils.SPACE_SEPERATOR,"");
                         mCreditCardView.setCardNumber(mCardNumber);
+                        if (mCardAdapter != null) {
+                            if (CardSelector.selectCard(mCardNumber) == CardSelector.AMEX)
+                                mCardAdapter.setMaxCVV(4);
+                            else
+                                mCardAdapter.setMaxCVV(3);
+                        }
                         break;
                     case 1:
                         mExpiry = entryValue;
@@ -210,7 +220,10 @@ public class CardEditActivity extends AppCompatActivity {
 
         final ViewPager pager = (ViewPager) findViewById(R.id.card_field_container_pager);
         int currentIndex = pager.getCurrentItem();
-
+        if(currentIndex == 0) {
+            setResult(1);
+            finish();
+        }
         if (currentIndex - 1 >= 0) {
             pager.setCurrentItem(currentIndex - 1);
         }
