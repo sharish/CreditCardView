@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_HOLDER_NAME, cardHolderName);
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_NUMBER, cardNumber);
                 intent.putExtra(CreditCardUtils.EXTRA_CARD_EXPIRY, expiry);
-                intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_FRONT);
+                intent.putExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_BACK);
                 intent.putExtra(CreditCardUtils.EXTRA_VALIDATE_EXPIRY_DATE, false);
 
+                // start at the CVV activity to edit it as it is not being passed
+                intent.putExtra(CreditCardUtils.EXTRA_ENTRY_START_PAGE, CreditCardUtils.CARD_CVV_PAGE);
 
                 startActivityForResult(intent, index);
 
