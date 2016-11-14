@@ -79,6 +79,7 @@ public class CardEditActivity extends AppCompatActivity {
 
         loadPager();
 
+        if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
             getViewPager().setCurrentItem(mStartPage);
         }
     }
