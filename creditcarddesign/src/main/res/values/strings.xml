@@ -8,4 +8,13 @@
     <string name="previous">PREVIOUS</string>
     <string name="done">DONE</string>
     <string name="card_holder_name_sample">JOHN MATTHEW</string>
+    <string name="card_holder">CARD HOLDER</string>
+    <string name="expiry">EXPIRY</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="card_expiry">CARD EXPIRY</string>
+    <string name="card_mm_yy">MM/YY</string>
+    <string name="name_on_card">NAME ON CARD</string>
+    <string name="card_number">CARD NUMBER</string>
+    <string name="error_invalid_month">Invalid month</string>
+    <string name="error_card_expired">Card expired</string>
 </resources>
