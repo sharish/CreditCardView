@@ -216,6 +216,11 @@ public class CardEditActivity extends AppCompatActivity {
         final ViewPager pager = (ViewPager) findViewById(R.id.card_field_container_pager);
         int currentIndex = pager.getCurrentItem();
 
+        if (currentIndex == 0) {
+            setResult(RESULT_CANCELED);
+            finish();
+        }
+
         if (currentIndex - 1 >= 0) {
             pager.setCurrentItem(currentIndex - 1);
         }
