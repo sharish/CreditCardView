@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">SUIVANT</string>
+    <string name="previous">PRECEDENT</string>
+    <string name="done">TERMINER</string>
+    <string name="card_holder_name_sample">JEAN MARTIN</string>
+    <string name="card_holder">TITULAIRE</string>
+    <string name="expiry">EXPIRATION</string>
+    <string name="mm_yy">MM/AA</string>
+    <string name="card_expiry">EXPIRATION</string>
+    <string name="card_mm_yy">MM/AA</string>
+    <string name="name_on_card">NOM SUR LA CARTE</string>
+    <string name="card_number">NUMERO DE CARTE</string>
+    <string name="error_invalid_month">Mois invalide</string>
+    <string name="error_card_expired">Carte expirée</string>
+</resources>
