@@ -73,7 +73,7 @@ public class CardExpiryFragment extends CreditCardFragment {
                 int mm = Integer.parseInt(month);
 
                 if (mm <= 0 || mm >= 13) {
-                    cardExpiryView.setError("Invalid month");
+                    cardExpiryView.setError(getString(R.string.error_invalid_month));
                     return;
                 }
 
@@ -89,10 +89,10 @@ public class CardExpiryFragment extends CreditCardFragment {
 
 
                     if (yy + millenium < currentYear) {
-                        cardExpiryView.setError("Card expired");
+                        cardExpiryView.setError(getString(R.string.error_card_expired));
                         return;
                     } else if (yy + millenium == currentYear && mm < currentMonth) {
-                        cardExpiryView.setError("Card expired");
+                        cardExpiryView.setError(getString(R.string.error_card_expired));
                         return;
                     }
                 }

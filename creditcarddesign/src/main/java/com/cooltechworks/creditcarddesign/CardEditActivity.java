@@ -34,6 +34,7 @@ public class CardEditActivity extends AppCompatActivity {
     private String mCVV;
     private String mCardHolderName;
     private String mExpiry;
+    private int mStartPage = 0;
     private CardFragmentAdapter mCardAdapter;
 
     @Override
@@ -78,6 +79,9 @@ public class CardEditActivity extends AppCompatActivity {
 
         loadPager();
 
+        if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
+            getViewPager().setCurrentItem(mStartPage);
+        }
     }
 
     private void checkParams(Bundle bundle) {
@@ -90,15 +94,12 @@ public class CardEditActivity extends AppCompatActivity {
         mCVV = bundle.getString(EXTRA_CARD_CVV);
         mExpiry = bundle.getString(EXTRA_CARD_EXPIRY);
         mCardNumber = bundle.getString(EXTRA_CARD_NUMBER);
-
-
+        mStartPage = bundle.getInt(EXTRA_ENTRY_START_PAGE);
 
         mCreditCardView.setCVV(mCVV);
         mCreditCardView.setCardHolderName(mCardHolderName);
         mCreditCardView.setCardExpiry(mExpiry);
         mCreditCardView.setCardNumber(mCardNumber);
-
-
 
         if(mCardAdapter != null) {
             mCardAdapter.notifyDataSetChanged();
@@ -120,9 +121,13 @@ public class CardEditActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.next)).setText(text);
     }
 
+    ViewPager getViewPager() {
+        return (ViewPager) findViewById(R.id.card_field_container_pager);
+    }
+
     public void loadPager() {
 
-        ViewPager pager = (ViewPager) findViewById(R.id.card_field_container_pager);
+        ViewPager pager = getViewPager();
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
