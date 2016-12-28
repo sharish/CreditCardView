@@ -72,12 +72,13 @@ public class CardEditActivity extends AppCompatActivity {
 
         if(savedInstanceState != null) {
             checkParams(savedInstanceState);
+            loadPager(savedInstanceState);
         }
         else {
             checkParams(getIntent().getExtras());
+            loadPager(getIntent().getExtras());
         }
 
-        loadPager();
 
         if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
             getViewPager().setCurrentItem(mStartPage);
@@ -125,7 +126,7 @@ public class CardEditActivity extends AppCompatActivity {
         return (ViewPager) findViewById(R.id.card_field_container_pager);
     }
 
-    public void loadPager() {
+    public void loadPager(Bundle bundle) {
 
         ViewPager pager = getViewPager();
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -154,7 +155,7 @@ public class CardEditActivity extends AppCompatActivity {
         });
         pager.setOffscreenPageLimit(4);
 
-        mCardAdapter = new CardFragmentAdapter(getSupportFragmentManager(),getIntent().getExtras());
+        mCardAdapter = new CardFragmentAdapter(getSupportFragmentManager(), bundle);
         mCardAdapter.setOnCardEntryCompleteListener(new ICardEntryCompleteListener() {
             @Override
             public void onCardEntryComplete(int currentIndex) {
