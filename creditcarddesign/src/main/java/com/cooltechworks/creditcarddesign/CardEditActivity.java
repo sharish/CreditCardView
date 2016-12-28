@@ -68,14 +68,10 @@ public class CardEditActivity extends AppCompatActivity {
 
         setKeyboardVisibility(true);
         mCreditCardView = (CreditCardView) findViewById(R.id.credit_card_view);
-
-        if (savedInstanceState != null) {
-            checkParams(savedInstanceState);
-        } else {
-            checkParams(getIntent().getExtras());
-        }
-
-        loadPager();
+        Bundle args = savedInstanceState != null ? savedInstanceState : getIntent().getExtras();
+      
+        checkParams(args);
+        loadPager(args);
 
         if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
             getViewPager().setCurrentItem(mStartPage);
@@ -126,7 +122,7 @@ public class CardEditActivity extends AppCompatActivity {
         return (ViewPager) findViewById(R.id.card_field_container_pager);
     }
 
-    public void loadPager() {
+    public void loadPager(Bundle bundle) {
         ViewPager pager = getViewPager();
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -156,7 +152,7 @@ public class CardEditActivity extends AppCompatActivity {
         });
         pager.setOffscreenPageLimit(4);
 
-        mCardAdapter = new CardFragmentAdapter(getSupportFragmentManager(), getIntent().getExtras());
+        mCardAdapter = new CardFragmentAdapter(getSupportFragmentManager(), bundle);
         mCardAdapter.setOnCardEntryCompleteListener(new ICardEntryCompleteListener() {
             @Override
             public void onCardEntryComplete(int currentIndex) {
@@ -215,6 +211,11 @@ public class CardEditActivity extends AppCompatActivity {
     public void showPrevious() {
         final ViewPager pager = (ViewPager) findViewById(R.id.card_field_container_pager);
         int currentIndex = pager.getCurrentItem();
+
+        if (currentIndex == 0) {
+            setResult(RESULT_CANCELED);
+            finish();
+        }
 
         if (currentIndex - 1 >= 0) {
             pager.setCurrentItem(currentIndex - 1);

@@ -1,6 +1,7 @@
 package com.cooltechworks.creditcarddesign.pager;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -99,5 +100,10 @@ public class CardFragmentAdapter extends FragmentStatePagerAdapter implements IA
         if (index >= 0 && mCardEntryCompleteListener != null) {
             mCardEntryCompleteListener.onCardEntryEdit(index, edit);
         }
+    }
+
+    @Override
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+        //do nothing here! no call to super.restoreState(parcelable, classLoader);
     }
 }
