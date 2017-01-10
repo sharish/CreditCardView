@@ -17,26 +17,24 @@ import static com.cooltechworks.creditcarddesign.CreditCardUtils.MAX_LENGTH_CARD
 /**
  * Created by sharish on 9/1/15.
  */
-public class CardNumberFragment extends  CreditCardFragment {
+public class CardNumberFragment extends CreditCardFragment {
 
     EditText mCardNumberView;
 
     public CardNumberFragment() {
-
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle state) {
-
         View v = inflater.inflate(R.layout.lyt_card_number, group, false);
         mCardNumberView = (EditText) v.findViewById(R.id.card_number_field);
 
         String number = "";
 
-        if(getArguments() != null && getArguments().containsKey(EXTRA_CARD_NUMBER)) {
+        if (getArguments() != null && getArguments().containsKey(EXTRA_CARD_NUMBER)) {
             number = getArguments().getString(EXTRA_CARD_NUMBER);
         }
 
-        if(number == null) {
+        if (number == null) {
             number = "";
         }
 
@@ -49,7 +47,6 @@ public class CardNumberFragment extends  CreditCardFragment {
 
     @Override
     public void afterTextChanged(Editable s) {
-
         int cursorPosition = mCardNumberView.getSelectionEnd();
         int previousLength = mCardNumberView.getText().length();
 
@@ -61,22 +58,20 @@ public class CardNumberFragment extends  CreditCardFragment {
         mCardNumberView.setSelection(cardNumber.length() > MAX_LENGTH_CARD_NUMBER_WITH_SPACES ? MAX_LENGTH_CARD_NUMBER_WITH_SPACES : cardNumber.length());
         mCardNumberView.addTextChangedListener(this);
 
-        if(modifiedLength <= previousLength && cursorPosition < modifiedLength) {
+        if (modifiedLength <= previousLength && cursorPosition < modifiedLength) {
             mCardNumberView.setSelection(cursorPosition);
         }
 
         onEdit(cardNumber);
 
-
-        if(cardNumber.replace(CreditCardUtils.SPACE_SEPERATOR,"").length() == MAX_LENGTH_CARD_NUMBER) {
+        if (cardNumber.replace(CreditCardUtils.SPACE_SEPERATOR, "").length() == MAX_LENGTH_CARD_NUMBER) {
             onComplete();
         }
     }
 
     @Override
     public void focus() {
-
-        if(isAdded()) {
+        if (isAdded()) {
             mCardNumberView.selectAll();
         }
     }

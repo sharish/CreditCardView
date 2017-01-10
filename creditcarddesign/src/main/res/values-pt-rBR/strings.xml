@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">PRÓXIMO</string>
+    <string name="previous">ANTERIOR</string>
+    <string name="done">PRONTO</string>
+    <string name="card_holder_name_sample">JOÃO SILVA</string>
+    <string name="card_holder">TITULAR</string>
+    <string name="expiry">VENCIMENTO</string>
+    <string name="mm_yy">MM/AA</string>
+    <string name="card_expiry">VENCIMENTO</string>
+    <string name="card_mm_yy">MM/AA</string>
+    <string name="name_on_card">NOME NO CARTÃO</string>
+    <string name="card_number">NÚMERO DO CARTÃO</string>
+    <string name="error_invalid_month">Mês inválido</string>
+    <string name="error_card_expired">Cartão vencido</string>
+</resources>
