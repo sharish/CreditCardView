@@ -9,12 +9,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.cooltechworks.creditcarddesign.CardEditActivity"
-            android:configChanges="keyboard|keyboardHidden"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/app_name">
         </activity>
         <activity
             android:name="com.cooltechworks.creditcarddesign.sample.MainActivity"
             android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
