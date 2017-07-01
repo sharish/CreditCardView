@@ -39,6 +39,8 @@ public class CreditCardView extends FrameLayout {
 
     private String mCardHolderName, mCVV, mExpiry;
 
+    int mCardnameLen;
+
     public CreditCardView(Context context) {
         super(context);
         init();
@@ -74,7 +76,7 @@ public class CreditCardView extends FrameLayout {
 
         mCurrentDrawable = R.drawable.card_color_round_rect_default;
         mRawCardNumber = "";
-
+        mCardnameLen = getResources().getInteger(R.integer.card_name_len);
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.view_creditcard, this, true);
@@ -232,8 +234,8 @@ public class CreditCardView extends FrameLayout {
     public void setCardHolderName(String cardHolderName) {
 
         cardHolderName = cardHolderName == null ? "" : cardHolderName;
-        if(cardHolderName.length() > 16) {
-            cardHolderName = cardHolderName.substring(0,16);
+        if(cardHolderName.length() > mCardnameLen) {
+            cardHolderName = cardHolderName.substring(0,mCardnameLen);
         }
 
         this.mCardHolderName = cardHolderName;

@@ -48,7 +48,7 @@ public class CardNameFragment extends CreditCardFragment {
     public void afterTextChanged(Editable s) {
 
         onEdit(s.toString());
-        if(s.length() == 16) {
+        if(s.length() == getResources().getInteger(R.integer.card_name_len)) {
             onComplete();
         }
     }
