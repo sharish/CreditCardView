@@ -40,7 +40,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:hint="@string/card_holder_name_sample"
                 android:inputType="textCapCharacters|textPersonName"
-                android:maxLength="16"
+                android:maxLength="@integer/card_name_len"
                 android:text="" />
 
         </LinearLayout>

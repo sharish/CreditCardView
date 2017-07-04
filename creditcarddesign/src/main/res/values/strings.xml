@@ -17,4 +17,5 @@
     <string name="card_number">CARD NUMBER</string>
     <string name="error_invalid_month">Invalid month</string>
     <string name="error_card_expired">Card expired</string>
+    <integer name="card_name_len">16</integer>
 </resources>
