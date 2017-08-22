@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">التالى</string>
+    <string name="previous">سابق</string>
+    <string name="done">فعله</string>
+    <string name="card_holder_name_sample">جون ماتيو</string>
+    <string name="card_holder">كارد هولدر</string>
+    <string name="expiry">انقضاء</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="card_expiry">كارد إكسيري</string>
+    <string name="card_mm_yy">MM/YY</string>
+    <string name="name_on_card">الاسم على البطاقة</string>
+    <string name="card_number">رقم البطاقة</string>
+    <string name="error_invalid_month">شهر غير صالح</string>
+    <string name="error_card_expired">انتهت صلاحية البطاقة</string>
+    <string name="cvv">cvv</string>
+    <integer name="card_name_len">16</integer>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">IL PROSSIMO</string>
+    <string name="previous">PRECEDENTE</string>
+    <string name="done">FATTO</string>
+    <string name="card_holder_name_sample">JOHN MATTHEW</string>
+    <string name="card_holder">SCHEDA TENDENTE</string>
+    <string name="expiry">SCADENZA</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">ESPERTO DELLA SCHEDA</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">NOME SUL FOGLIO</string>
+    <string name="card_number">NUMERO DI CARTA</string>
+    <string name="error_invalid_month">Mese non valido</string>
+    <string name="error_card_expired">La carta è scaduta</string>
+    <string name="cvv">cvv</string>
+</resources>

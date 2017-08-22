@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">NAS PRÓXIMAS</string>
+    <string name="previous">O ANTERIOR</string>
+    <string name="done">FEITO</string>
+    <string name="card_holder_name_sample">JOHN MATTHEW</string>
+    <string name="card_holder">CARTÃO DE TENDÊNCIA</string>
+    <string name="expiry">TERMO</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">EXPIRAÇÃO DO CARTÃO</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">NOME DO PAPEL</string>
+    <string name="card_number">NÚMERO DO CARTÃO</string>
+    <string name="error_invalid_month">Mês inválido</string>
+    <string name="error_card_expired">O cartão expirou</string>
+    <string name="cvv">cvv</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">הבא</string>
+    <string name="previous">הקודם</string>
+    <string name="done">בוצע</string>
+    <string name="card_holder_name_sample">ג\'ון מתיו</string>
+    <string name="card_holder">כרטיס טרנד</string>
+    <string name="expiry">תְפוּגָה</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">תחילת הכרטיס</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card"> על הנייר שֵׁם</string>
+    <string name="card_number">מספר כרטיס</string>
+    <string name="error_invalid_month">חודש לא חוקי</string>
+    <string name="error_card_expired">פג תוקפו של הכרטיס</string>
+    <string name="cvv">cvv</string>
+</resources>

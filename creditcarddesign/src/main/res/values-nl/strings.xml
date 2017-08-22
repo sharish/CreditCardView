@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">DE VOLGENDE</string>
+    <string name="previous">VORIGE</string>
+    <string name="done">GEDAAN</string>
+    <string name="card_holder_name_sample">JOHN MATTHEW</string>
+    <string name="card_holder">TENDENT CARD</string>
+    <string name="expiry">UITERSTE</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">VERVAL VAN DE KAART</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">NAAM OP HET PAPIER</string>
+    <string name="card_number">KAARTNUMMER</string>
+    <string name="error_invalid_month">Ongeldige maand</string>
+    <string name="error_card_expired">De kaart is verlopen</string>
+    <string name="cvv">cvv</string>
+</resources>

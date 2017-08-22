@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">ಮುಂದಿನ</string>
+    <string name="previous">ಹಿಂದಿನದು</string>
+    <string name="done">ಮುಗಿದಿದೆ</string>
+    <string name="card_holder_name_sample">ಜಾನ್ ಮ್ಯಾಥ್ಯೂ</string>
+    <string name="card_holder">ತಾತ್ಕಾಲಿಕ ಕಾರ್ಡ್</string>
+    <string name="expiry">ಎಕ್ಸ್ಪ್ರೆಸ್</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">ಕಾರ್ಡಿನ ಎಕ್ಸ್ಪ್ರೆಸ್</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">ಪೇಪರ್ನಲ್ಲಿ NAME</string>
+    <string name="card_number">ಕಾರ್ಡ್ ಸಂಖ್ಯೆ</string>
+    <string name="error_invalid_month">ಅಮಾನ್ಯವಾದ ತಿಂಗಳು</string>
+    <string name="error_card_expired">ಕಾರ್ಡ್ ಮುಗಿದಿದೆ</string>
+    <string name="cvv">cvv</string>
+</resources>

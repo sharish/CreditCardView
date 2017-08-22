@@ -13,4 +13,5 @@
     <string name="card_number">NUMERO DE CARTE</string>
     <string name="error_invalid_month">Mois invalide</string>
     <string name="error_card_expired">Carte expirée</string>
+    <string name="cvv">cvv</string>
 </resources>
