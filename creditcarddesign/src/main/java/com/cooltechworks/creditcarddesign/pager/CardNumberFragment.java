@@ -10,9 +10,9 @@ import android.widget.EditText;
 import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.cooltechworks.creditcarddesign.R;
 
+import static com.cooltechworks.creditcarddesign.CreditCardUtils.CARD_NUMBER_FORMAT;
+import static com.cooltechworks.creditcarddesign.CreditCardUtils.CARD_NUMBER_FORMAT_AMEX;
 import static com.cooltechworks.creditcarddesign.CreditCardUtils.EXTRA_CARD_NUMBER;
-import static com.cooltechworks.creditcarddesign.CreditCardUtils.MAX_LENGTH_CARD_NUMBER;
-import static com.cooltechworks.creditcarddesign.CreditCardUtils.MAX_LENGTH_CARD_NUMBER_WITH_SPACES;
 
 /**
  * Created by sharish on 9/1/15.
@@ -55,7 +55,10 @@ public class CardNumberFragment extends CreditCardFragment {
 
         mCardNumberView.removeTextChangedListener(this);
         mCardNumberView.setText(cardNumber);
-        mCardNumberView.setSelection(cardNumber.length() > MAX_LENGTH_CARD_NUMBER_WITH_SPACES ? MAX_LENGTH_CARD_NUMBER_WITH_SPACES : cardNumber.length());
+        String rawCardNumber = cardNumber.replace(CreditCardUtils.SPACE_SEPERATOR, "");
+        CreditCardUtils.CardType cardType = CreditCardUtils.selectCardType(rawCardNumber);
+        int maxLengthWithSpaces = ((cardType == CreditCardUtils.CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT).length();
+        mCardNumberView.setSelection(cardNumber.length() > maxLengthWithSpaces ? maxLengthWithSpaces : cardNumber.length());
         mCardNumberView.addTextChangedListener(this);
 
         if (modifiedLength <= previousLength && cursorPosition < modifiedLength) {
@@ -64,7 +67,7 @@ public class CardNumberFragment extends CreditCardFragment {
 
         onEdit(cardNumber);
 
-        if (cardNumber.replace(CreditCardUtils.SPACE_SEPERATOR, "").length() == MAX_LENGTH_CARD_NUMBER) {
+        if (rawCardNumber.length() == CreditCardUtils.selectCardLength(cardType)) {
             onComplete();
         }
     }

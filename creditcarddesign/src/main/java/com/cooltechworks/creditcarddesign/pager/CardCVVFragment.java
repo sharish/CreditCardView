@@ -60,7 +60,7 @@ public class CardCVVFragment extends CreditCardFragment {
     }
 
     public void setMaxCVV(int maxCVVLength) {
-        if (mCardCVVView != null && mCardCVVView.getText().toString().length() >= maxCVVLength) {
+        if (mCardCVVView != null && (mCardCVVView.getText().toString().length() > maxCVVLength)) {
             mCardCVVView.setText(mCardCVVView.getText().toString().substring(0, maxCVVLength));
         }
 
