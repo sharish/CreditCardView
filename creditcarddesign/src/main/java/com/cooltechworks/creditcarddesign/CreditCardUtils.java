@@ -4,16 +4,25 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 /**
  * Created by Harish on 03/01/16.
  */
 public class CreditCardUtils {
+    public enum CardType {
+        UNKNOWN_CARD, AMEX_CARD, MASTER_CARD, VISA_CARD
+    }
 
-    public static final int MAX_LENGTH_CARD_NUMBER_WITH_SPACES = 19;
+    private static final String PATTERN_AMEX = "^3(4|7)[0-9 ]*";
+    private static final String PATTERN_VISA = "^4[0-9 ]*";
+    private static final String PATTERN_MASTER = "^5[0-9 ]*";
+
     public static final int MAX_LENGTH_CARD_NUMBER = 16;
+    public static final int MAX_LENGTH_CARD_NUMBER_AMEX = 15;
 
-    public static final int MAX_LENGTH_CARD_HOLDER_NAME = 16;
+    public static final String CARD_NUMBER_FORMAT = "XXXX XXXX XXXX XXXX";
+    public static final String CARD_NUMBER_FORMAT_AMEX = "XXXX XXXXXX XXXXX";
 
     public static final String EXTRA_CARD_NUMBER = "card_number";
     public static final String EXTRA_CARD_CVV = "card_cvv";
@@ -29,8 +38,6 @@ public class CreditCardUtils {
     public static final int CARD_CVV_PAGE = 2, CARD_NAME_PAGE = 3;
 
     public static final String SPACE_SEPERATOR = " ";
-    public static final String DOUBLE_SPACE_SEPERATOR = "  ";
-
     public static final String SLASH_SEPERATOR = "/";
     public static final char CHAR_X = 'X';
 
@@ -39,43 +46,52 @@ public class CreditCardUtils {
         return handleCardNumber(inputCardNumber,SPACE_SEPERATOR);
     }
 
-
-    public static String handleCardNumber(String inputCardNumber, String seperator) {
-
-        String formattingText = inputCardNumber.replace(seperator, "");
-        String text;
-
-        if (formattingText.length() >= 4) {
-
-            text = formattingText.substring(0, 4);
-
-            if (formattingText.length() >= 8) {
-                text += seperator + formattingText.substring(4, 8);
-            } else if (formattingText.length() > 4) {
-                text += seperator + formattingText.substring(4);
-            }
-
-            if (formattingText.length() >= 12) {
-                text += seperator + formattingText.substring(8, 12);
-            } else if (formattingText.length() > 8) {
-                text += seperator + formattingText.substring(8);
-            }
-
-            if (formattingText.length() >= 16) {
-                text += seperator + formattingText.substring(12);
-            } else if (formattingText.length() > 12) {
-                text += seperator + formattingText.substring(12);
-            }
-
-            return text;
-
-        } else {
-            text = formattingText.trim();
-        }
-
-        return text;
+    public static CardType selectCardType(String cardNumber) {
+        Pattern pCardType = Pattern.compile(PATTERN_VISA);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.VISA_CARD;
+        pCardType = Pattern.compile(PATTERN_MASTER);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.MASTER_CARD;
+        pCardType = Pattern.compile(PATTERN_AMEX);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.AMEX_CARD;
+        return CardType.UNKNOWN_CARD;
     }
 
+    public static int selectCardLength(CardType cardType) {
+        return cardType == CardType.AMEX_CARD ? MAX_LENGTH_CARD_NUMBER_AMEX : MAX_LENGTH_CARD_NUMBER;
+    }
+
+    public static String handleCardNumber(String inputCardNumber, String seperator) {
+        String unformattedText = inputCardNumber.replace(seperator, "");
+        CardType cardType = selectCardType(inputCardNumber);
+        String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
+        StringBuilder sbFormattedNumber = new StringBuilder();
+        for(int iIdx = 0, jIdx = 0; (iIdx < format.length()) && (unformattedText.length() > jIdx); iIdx++) {
+            if(format.charAt(iIdx) == CHAR_X)
+                sbFormattedNumber.append(unformattedText.charAt(jIdx++));
+            else
+                sbFormattedNumber.append(format.charAt(iIdx));
+        }
+
+        return sbFormattedNumber.toString();
+    }
+
+    public static String formatCardNumber(String inputCardNumber, String seperator) {
+        String unformattedText = inputCardNumber.replace(seperator, "");
+        CardType cardType = selectCardType(inputCardNumber);
+        String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
+        StringBuilder sbFormattedNumber = new StringBuilder();
+        for(int iIdx = 0, jIdx = 0; iIdx < format.length(); iIdx++) {
+            if((format.charAt(iIdx) == CHAR_X) && (unformattedText.length() > jIdx))
+                sbFormattedNumber.append(unformattedText.charAt(jIdx++));
+            else
+                sbFormattedNumber.append(format.charAt(iIdx));
+        }
+
+        return sbFormattedNumber.toString().replace(SPACE_SEPERATOR, SPACE_SEPERATOR + SPACE_SEPERATOR);
+    }
 
     public static String handleExpiration(String month, String year) {
 
