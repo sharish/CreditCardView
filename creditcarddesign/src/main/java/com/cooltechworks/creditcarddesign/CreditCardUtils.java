@@ -1,6 +1,5 @@
 package com.cooltechworks.creditcarddesign;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import java.util.Calendar;
@@ -11,12 +10,13 @@ import java.util.regex.Pattern;
  */
 public class CreditCardUtils {
     public enum CardType {
-        UNKNOWN_CARD, AMEX_CARD, MASTER_CARD, VISA_CARD
+        UNKNOWN_CARD, AMEX_CARD, MASTER_CARD, VISA_CARD, DISCOVER_CARD
     }
 
     private static final String PATTERN_AMEX = "^3(4|7)[0-9 ]*";
     private static final String PATTERN_VISA = "^4[0-9 ]*";
     private static final String PATTERN_MASTER = "^5[0-9 ]*";
+    private static final String PATTERN_DISCOVER = "^6[0-9 ]*";
 
     public static final int MAX_LENGTH_CARD_NUMBER = 16;
     public static final int MAX_LENGTH_CARD_NUMBER_AMEX = 15;
@@ -56,6 +56,9 @@ public class CreditCardUtils {
         pCardType = Pattern.compile(PATTERN_AMEX);
         if(pCardType.matcher(cardNumber).matches())
             return CardType.AMEX_CARD;
+        pCardType = Pattern.compile(PATTERN_DISCOVER);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.DISCOVER_CARD;
         return CardType.UNKNOWN_CARD;
     }
 
@@ -137,12 +140,9 @@ public class CreditCardUtils {
                 yy = expiryString.substring(2);
                 text = mm + SLASH_SEPERATOR + yy;
             }
-
-
         }
         else {
             text = expiryString;
-
         }
 
         return text;
