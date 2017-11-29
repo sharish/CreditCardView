@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/discover_back_bg" />
+
+
+    <item
+        android:bottom="180dp"
+        android:drawable="@drawable/sign_strip"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="140dp"
+
+        />
+
+    <item
+        android:bottom="300dp"
+        android:drawable="@android:color/black"
+        android:top="30dp" />
+
+
+    <item
+        android:bottom="20dp"
+        android:drawable="@drawable/ic_billing_discover_logo"
+        android:left="550dp"
+        android:right="30dp"
+        android:top="300dp" />
+
+</layer-list>
