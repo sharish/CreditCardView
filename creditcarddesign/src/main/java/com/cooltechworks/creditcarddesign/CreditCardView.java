@@ -42,6 +42,8 @@ public class CreditCardView extends FrameLayout {
 
     private CreditCardUtils.CardType mCardType;
 
+    private boolean forcedCardType;
+
     int mCardnameLen;
 
     public CreditCardView(Context context) {
@@ -73,7 +75,7 @@ public class CreditCardView extends FrameLayout {
 
     public CreditCardUtils.CardType getCardType() { return mCardType; }
 
-    interface ICustomCardSelector {
+    public interface ICustomCardSelector {
         CardSelector getCardSelector(String cardNumber);
     }
     
@@ -167,12 +169,19 @@ public class CreditCardView extends FrameLayout {
 
     }
 
+    public void setCardType(CreditCardUtils.CardType cardType) {
+        forcedCardType = cardType != null;
+        mCardType = cardType;
+    }
+
     public void setCardNumber(String rawCardNumber) {
 
 
         this.mRawCardNumber = rawCardNumber == null ? "" : rawCardNumber;
-        this.mCardType = CreditCardUtils.selectCardType(this.mRawCardNumber);
-        String cardNumber = CreditCardUtils.formatCardNumber(this.mRawCardNumber, CreditCardUtils.SPACE_SEPERATOR);
+        if (!forcedCardType) {
+            this.mCardType = CreditCardUtils.selectCardType(this.mRawCardNumber);
+        }
+        String cardNumber = CreditCardUtils.formatCardNumber(this.mRawCardNumber, CreditCardUtils.SPACE_SEPERATOR, mCardType);
 
         ((TextView)findViewById(TEXTVIEW_CARD_NUMBER_ID)).setText(cardNumber);
         ((TextView)findViewById(TEXTVIEW_CARD_CVV_AMEX_ID)).setVisibility(mCardType == CreditCardUtils.CardType.AMEX_CARD ? View.VISIBLE : View.GONE);
@@ -298,6 +307,8 @@ public class CreditCardView extends FrameLayout {
     public CardSelector selectCard() {
         if(mSelectorLogic != null) {
             return mSelectorLogic.getCardSelector(mRawCardNumber);
+        } else if (forcedCardType) {
+            return CardSelector.selectCardType(mCardType);
         }
         return CardSelector.selectCard(mRawCardNumber);
     }
