@@ -13,10 +13,11 @@
     <string name="mm_yy">MM/YY</string>
     <string name="card_expiry">CARD EXPIRY</string>
     <string name="card_mm_yy">MM/YY</string>
+    <string name="hint_cvv_front">0000</string>
     <string name="name_on_card">NAME ON CARD</string>
     <string name="card_number">CARD NUMBER</string>
     <string name="error_invalid_month">Invalid month</string>
     <string name="error_card_expired">Card expired</string>
     <string name="cvv">cvv</string>
-    <integer name="card_name_len">16</integer>
+    <integer name="card_name_len">25</integer>
 </resources>

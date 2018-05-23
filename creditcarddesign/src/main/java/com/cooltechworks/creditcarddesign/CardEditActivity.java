@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -70,12 +69,8 @@ public class CardEditActivity extends AppCompatActivity {
         mCreditCardView = (CreditCardView) findViewById(R.id.credit_card_view);
         Bundle args = savedInstanceState != null ? savedInstanceState : getIntent().getExtras();
       
-        checkParams(args);
         loadPager(args);
-
-        if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
-            getViewPager().setCurrentItem(mStartPage);
-        }
+        checkParams(args);
     }
 
     private void checkParams(Bundle bundle) {
@@ -88,8 +83,8 @@ public class CardEditActivity extends AppCompatActivity {
         mCardNumber = bundle.getString(EXTRA_CARD_NUMBER);
         mStartPage = bundle.getInt(EXTRA_ENTRY_START_PAGE);
 
-        int maxCvvLength = CardSelector.selectCard(mCardNumber).getCvvLength();
-        if (mCVV != null && mCVV.length() >= maxCvvLength) {
+        final int maxCvvLength = CardSelector.selectCard(mCardNumber).getCvvLength();
+        if (mCVV != null && mCVV.length() > maxCvvLength) {
             mCVV = mCVV.substring(0, maxCvvLength);
         }
 
@@ -99,8 +94,20 @@ public class CardEditActivity extends AppCompatActivity {
         mCreditCardView.setCardNumber(mCardNumber);
 
         if (mCardAdapter != null) {
-            mCardAdapter.setMaxCVV(maxCvvLength);
-            mCardAdapter.notifyDataSetChanged();
+            mCreditCardView.post(new Runnable() {
+                @Override
+                public void run() {
+                    mCardAdapter.setMaxCVV(maxCvvLength);
+                    mCardAdapter.notifyDataSetChanged();
+                }});
+        }
+
+        int cardSide =  bundle.getInt(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_FRONT);
+        if (cardSide == CreditCardUtils.CARD_SIDE_BACK) {
+            mCreditCardView.showBack();
+        }
+        if (mStartPage > 0 && mStartPage <= CARD_NAME_PAGE) {
+            getViewPager().setCurrentItem(mStartPage);
         }
     }
 
@@ -134,9 +141,9 @@ public class CardEditActivity extends AppCompatActivity {
 
                 mCardAdapter.focus(position);
 
-                if (position == 2) {
+                if ((mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD) && (position == 2)) {
                     mCreditCardView.showBack();
-                } else if ((position == 1 && mLastPageSelected == 2) || position == 3) {
+                } else if (((position == 1) || (position == 3)) && (mLastPageSelected == 2) && (mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD)) {
                     mCreditCardView.showFront();
                 }
 
@@ -186,11 +193,6 @@ public class CardEditActivity extends AppCompatActivity {
         });
 
         pager.setAdapter(mCardAdapter);
-
-        int cardSide = getIntent().getIntExtra(CreditCardUtils.EXTRA_CARD_SHOW_CARD_SIDE, CreditCardUtils.CARD_SIDE_FRONT);
-        if (cardSide == CreditCardUtils.CARD_SIDE_BACK) {
-            pager.setCurrentItem(2);
-        }
     }
 
     public void onSaveInstanceState(Bundle outState) {
@@ -262,7 +264,7 @@ public class CardEditActivity extends AppCompatActivity {
         // Checks whether a hardware keyboard is available
         if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
 
-            LinearLayout parent = (LinearLayout) findViewById(R.id.parent);
+            RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) parent.getLayoutParams();
             layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, 0);
             parent.setLayoutParams(layoutParams);

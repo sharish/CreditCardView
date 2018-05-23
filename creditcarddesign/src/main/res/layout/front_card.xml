@@ -6,6 +6,34 @@
     android:orientation="vertical"
     >
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="250dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/front_card_cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="@string/hint_cvv_front"
+            android:maxWidth="60dp"
+            android:minWidth="60dp"
+            android:paddingBottom="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_small"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/semi_white"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/front_card_number"
         android:layout_width="wrap_content"

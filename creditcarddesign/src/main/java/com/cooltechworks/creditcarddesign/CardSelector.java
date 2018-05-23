@@ -8,11 +8,8 @@ public class CardSelector {
     public static final CardSelector VISA = new CardSelector(R.drawable.card_color_round_rect_purple, R.drawable.chip, R.drawable.chip_inner, android.R.color.transparent, R.drawable.ic_billing_visa_logo, CardSelector.CVV_LENGHT_DEFAULT);
     public static final CardSelector MASTER = new CardSelector(R.drawable.card_color_round_rect_pink, R.drawable.chip_yellow, R.drawable.chip_yellow_inner, android.R.color.transparent, R.drawable.ic_billing_mastercard_logo, CardSelector.CVV_LENGHT_DEFAULT);
     public static final CardSelector AMEX = new CardSelector(R.drawable.card_color_round_rect_green, android.R.color.transparent, android.R.color.transparent, R.drawable.img_amex_center_face, R.drawable.ic_billing_amex_logo1, CardSelector.CVV_LENGHT_AMEX);
+    public static final CardSelector DISCOVER = new CardSelector(R.drawable.card_color_round_rect_brown, android.R.color.transparent, android.R.color.transparent, android.R.color.transparent, R.drawable.ic_billing_discover_logo, CardSelector.CVV_LENGHT_DEFAULT);
     public static final CardSelector DEFAULT = new CardSelector(R.drawable.card_color_round_rect_default, R.drawable.chip, R.drawable.chip_inner, android.R.color.transparent, android.R.color.transparent, CardSelector.CVV_LENGHT_DEFAULT);
-
-    private static final char PREFIX_AMEX = '3';
-    private static final char PREFIX_VISA = '4';
-    private static final char PREFIX_MASTER = '5';
 
     public static final int CVV_LENGHT_DEFAULT = 3;
     public static final int CVV_LENGHT_AMEX = 4;
@@ -82,24 +79,27 @@ public class CardSelector {
         this.mCvvLength = mCvvLength;
     }
 
-    public static CardSelector selectCard(char cardFirstChar) {
-        switch (cardFirstChar) {
-            case PREFIX_VISA:
-                return VISA;
-            case PREFIX_MASTER:
-                return MASTER;
-            case PREFIX_AMEX:
+    public static CardSelector selectCardType(CreditCardUtils.CardType cardType) {
+        switch(cardType) {
+            case AMEX_CARD:
                 return AMEX;
+            case DISCOVER_CARD:
+                return DISCOVER;
+            case MASTER_CARD:
+                return MASTER;
+            case VISA_CARD:
+                return VISA;
             default:
                 return DEFAULT;
         }
     }
 
     public static CardSelector selectCard(String cardNumber) {
-        if (cardNumber != null && cardNumber.length() >= 3) {
-            CardSelector selector = selectCard(cardNumber.charAt(0));
+        if (cardNumber != null && cardNumber.length() >= 1) {
+            CreditCardUtils.CardType cardType = CreditCardUtils.selectCardType(cardNumber);
+            CardSelector selector = selectCardType(cardType);
 
-            if (selector != DEFAULT) {
+            if ((selector != DEFAULT) && (cardNumber.length() >= 3)) {
                 int[] drawables = {R.drawable.card_color_round_rect_brown, R.drawable.card_color_round_rect_green, R.drawable.card_color_round_rect_pink, R.drawable.card_color_round_rect_purple, R.drawable.card_color_round_rect_blue};
                 int hash = cardNumber.substring(0, 3).hashCode();
 
