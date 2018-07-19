@@ -42,6 +42,9 @@ public class CreditCardView extends FrameLayout {
 
     private CreditCardUtils.CardType mCardType;
 
+
+    private boolean alwaysHideFrontCvv;
+
     int mCardnameLen;
 
     public CreditCardView(Context context) {
@@ -100,6 +103,8 @@ public class CreditCardView extends FrameLayout {
         String expiry = a.getString(R.styleable.creditcard_card_expiration);
         String cardNumber = a.getString(R.styleable.creditcard_card_number);
 
+
+        alwaysHideFrontCvv = a .getBoolean(R.styleable.creditcard_always_hide_front_cvv, false);
         int cvv = a.getInt(R.styleable.creditcard_cvv, 0);
         int cardSide = a.getInt(R.styleable.creditcard_card_side,CreditCardUtils.CARD_SIDE_FRONT);
 
@@ -175,7 +180,9 @@ public class CreditCardView extends FrameLayout {
         String cardNumber = CreditCardUtils.formatCardNumber(this.mRawCardNumber, CreditCardUtils.SPACE_SEPERATOR);
 
         ((TextView)findViewById(TEXTVIEW_CARD_NUMBER_ID)).setText(cardNumber);
-        ((TextView)findViewById(TEXTVIEW_CARD_CVV_AMEX_ID)).setVisibility(mCardType == CreditCardUtils.CardType.AMEX_CARD ? View.VISIBLE : View.GONE);
+        if(!alwaysHideFrontCvv) {
+            ((TextView) findViewById(TEXTVIEW_CARD_CVV_AMEX_ID)).setVisibility(mCardType == CreditCardUtils.CardType.AMEX_CARD ? View.VISIBLE : View.GONE);
+        }
 
         if(this.mCardType != CreditCardUtils.CardType.UNKNOWN_CARD) {
             this.post(new Runnable() {

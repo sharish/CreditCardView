@@ -15,6 +15,7 @@
             <enum name="back" value="0" />
         </attr>
 
+        <attr name="always_hide_front_cvv" format="boolean"/>
 
     </declare-styleable>
 </resources>
