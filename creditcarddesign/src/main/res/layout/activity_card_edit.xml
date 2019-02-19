@@ -37,7 +37,13 @@
 
             </com.cooltechworks.creditcarddesign.views.HeightWrappingViewPager>
 
+            <Button
+                android:id="@+id/btnSetLocale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change Locale"/>
         </LinearLayout>
+
     </ScrollView>
 
     <LinearLayout
@@ -73,9 +79,6 @@
             android:text="@string/next"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_small"
-
             />
     </LinearLayout>
-
-
 </RelativeLayout>

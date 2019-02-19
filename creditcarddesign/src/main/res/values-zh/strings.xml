@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">下一个</string>
+    <string name="previous">前一个</string>
+    <string name="done">DONE</string>
+    <string name="card_holder_name_sample">约翰·马修</string>
+    <string name="card_holder">TENDENT卡</string>
+    <string name="expiry">到期</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">卡的过期</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">文件上的名字</string>
+    <string name="card_number">卡号</string>
+    <string name="error_invalid_month">月份无效</string>
+    <string name="error_card_expired">卡已过期</string>
+    <string name="cvv">cvv</string>
+</resources>

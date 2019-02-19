@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">SIGUIENTE</string>
+    <string name="previous">ANTERIOR</string>
+    <string name="done">HECHO</string>
+    <string name="card_holder_name_sample">JOHN MATTHEW</string>
+    <string name="card_holder">SOPORTE DE TARJETA</string>
+    <string name="expiry">EXPIRACIÓN</string>
+    <string name="mm_yy">MM / AA</string>
+    <string name="card_expiry">EXPIRACIÓN DE TARJETAS</string>
+    <string name="card_mm_yy">MM / AA</string>
+    <string name="name_on_card">NOMBRE EN LA TARJETA</string>
+    <string name="card_number"> NÚMERO DE TARJETA</string>
+    <string name="error_invalid_month"> Mes no válido</string>
+    <string name="error_card_expired"> Tarjeta caducada</string>
+    <string name="cvv">cvv</string>
+    <integer name="card_name_len">16</integer>
+</resources>
