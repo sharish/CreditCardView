@@ -1,6 +1,6 @@
 package com.cooltechworks.creditcarddesign;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
