@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+// apply plugin: 'kotlin-kapt'
+
 android {
 
     compileSdkVersion 28
@@ -24,4 +30,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.ozodrukh:CircularReveal:2.0.1'
+    // implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.40'
 }
