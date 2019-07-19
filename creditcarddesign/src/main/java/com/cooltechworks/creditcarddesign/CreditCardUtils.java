@@ -10,19 +10,24 @@ import java.util.regex.Pattern;
  */
 public class CreditCardUtils {
     public enum CardType {
-        UNKNOWN_CARD, AMEX_CARD, MASTER_CARD, VISA_CARD, DISCOVER_CARD
+        UNKNOWN_CARD, AMEX_CARD, MASTER_CARD, VISA_CARD, DISCOVER_CARD, DINERS_14_CARD, DINERS_16_CARD
     }
 
     private static final String PATTERN_AMEX = "^3(4|7)[0-9 ]*";
     private static final String PATTERN_VISA = "^4[0-9 ]*";
-    private static final String PATTERN_MASTER = "^5[0-9 ]*";
+    private static final String PATTERN_MASTER = "^[52][0-9]*$";
     private static final String PATTERN_DISCOVER = "^6[0-9 ]*";
+    private static final String PATTERN_DINERS_14 = "^3(0[0-5]|[6])[0-9]*$";
+    private static final String PATTERN_DINERS_16 = "^3[89][0-9]*$";
 
-    public static final int MAX_LENGTH_CARD_NUMBER = 16;
-    public static final int MAX_LENGTH_CARD_NUMBER_AMEX = 15;
+    private static final int MAX_LENGTH_CARD_NUMBER = 16;
+    private static final int MAX_LENGTH_CARD_NUMBER_AMEX = 15;
+    private static final int MAX_LENGTH_CARD_NUMBER_DINERS_14 = 14;
 
-    public static final String CARD_NUMBER_FORMAT = "XXXX XXXX XXXX XXXX";
-    public static final String CARD_NUMBER_FORMAT_AMEX = "XXXX XXXXXX XXXXX";
+    private static final String CARD_NUMBER_FORMAT = "XXXX XXXX XXXX XXXX";
+    private static final String CARD_NUMBER_FORMAT_AMEX = "XXXX XXXXXX XXXXX";
+    private static final String CARD_NUMBER_FORMAT_DINERS_14 = "XXXXX XXXX XXXXX";
+    private static final String CARD_NUMBER_FORMAT_DINERS_16 = "XXXXX XXXX XXXXXXX";
 
     public static final String EXTRA_CARD_NUMBER = "card_number";
     public static final String EXTRA_CARD_CVV = "card_cvv";
@@ -42,7 +47,6 @@ public class CreditCardUtils {
     public static final char CHAR_X = 'X';
 
     public static String handleCardNumber(String inputCardNumber) {
-
         return handleCardNumber(inputCardNumber,SPACE_SEPERATOR);
     }
 
@@ -56,6 +60,12 @@ public class CreditCardUtils {
         pCardType = Pattern.compile(PATTERN_AMEX);
         if(pCardType.matcher(cardNumber).matches())
             return CardType.AMEX_CARD;
+        pCardType = Pattern.compile(PATTERN_DINERS_14);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.DINERS_14_CARD;
+        pCardType = Pattern.compile(PATTERN_DINERS_16);
+        if(pCardType.matcher(cardNumber).matches())
+            return CardType.DINERS_16_CARD;
         pCardType = Pattern.compile(PATTERN_DISCOVER);
         if(pCardType.matcher(cardNumber).matches())
             return CardType.DISCOVER_CARD;
@@ -63,13 +73,33 @@ public class CreditCardUtils {
     }
 
     public static int selectCardLength(CardType cardType) {
-        return cardType == CardType.AMEX_CARD ? MAX_LENGTH_CARD_NUMBER_AMEX : MAX_LENGTH_CARD_NUMBER;
+        switch (cardType) {
+            case AMEX_CARD:
+                return MAX_LENGTH_CARD_NUMBER_AMEX;
+            case DINERS_14_CARD:
+                return MAX_LENGTH_CARD_NUMBER_DINERS_14;
+            default:
+                return MAX_LENGTH_CARD_NUMBER;
+        }
+    }
+
+    public static String getCardFormat(CardType cardType) {
+        switch (cardType) {
+            case AMEX_CARD:
+                return CARD_NUMBER_FORMAT_AMEX;
+            case DINERS_14_CARD:
+                return CARD_NUMBER_FORMAT_DINERS_14;
+            case DINERS_16_CARD:
+                return CARD_NUMBER_FORMAT_DINERS_16;
+            default:
+                return CARD_NUMBER_FORMAT;
+        }
     }
 
     public static String handleCardNumber(String inputCardNumber, String seperator) {
         String unformattedText = inputCardNumber.replace(seperator, "");
         CardType cardType = selectCardType(inputCardNumber);
-        String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
+        String format = getCardFormat(cardType);
         StringBuilder sbFormattedNumber = new StringBuilder();
         for(int iIdx = 0, jIdx = 0; (iIdx < format.length()) && (unformattedText.length() > jIdx); iIdx++) {
             if(format.charAt(iIdx) == CHAR_X)
@@ -84,7 +114,7 @@ public class CreditCardUtils {
     public static String formatCardNumber(String inputCardNumber, String seperator) {
         String unformattedText = inputCardNumber.replace(seperator, "");
         CardType cardType = selectCardType(inputCardNumber);
-        String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
+        String format = getCardFormat(cardType);
         StringBuilder sbFormattedNumber = new StringBuilder();
         for(int iIdx = 0, jIdx = 0; iIdx < format.length(); iIdx++) {
             if((format.charAt(iIdx) == CHAR_X) && (unformattedText.length() > jIdx))
