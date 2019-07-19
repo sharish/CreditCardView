@@ -42,8 +42,9 @@ public class CreditCardView extends FrameLayout {
 
     private CreditCardUtils.CardType mCardType;
 
-
     private boolean alwaysHideFrontCvv;
+    private boolean changeCardColor;
+    private boolean showCardAnimation;
 
     int mCardnameLen;
 
@@ -103,8 +104,17 @@ public class CreditCardView extends FrameLayout {
         String expiry = a.getString(R.styleable.creditcard_card_expiration);
         String cardNumber = a.getString(R.styleable.creditcard_card_number);
 
-
         alwaysHideFrontCvv = a .getBoolean(R.styleable.creditcard_always_hide_front_cvv, false);
+        changeCardColor = a.getBoolean(R.styleable.creditcard_change_card_color, true);
+        showCardAnimation = a.getBoolean(R.styleable.creditcard_show_card_animation, true);
+        boolean showChipOnCard = a.getBoolean(R.styleable.creditcard_show_chip_on_card, true);
+        if(!showChipOnCard) {
+            View chipContainer = findViewById(R.id.chip_container);
+            if(chipContainer != null) {
+                chipContainer.setVisibility(View.INVISIBLE);
+            }
+        }
+      
         int cvv = a.getInt(R.styleable.creditcard_cvv, 0);
         int cardSide = a.getInt(R.styleable.creditcard_card_side,CreditCardUtils.CARD_SIDE_FRONT);
 
@@ -285,8 +295,10 @@ public class CreditCardView extends FrameLayout {
         ImageView backLogoImageView = (ImageView) findViewById(BACK_CARD_ID).findViewById(R.id.logo_img);
         backLogoImageView.setImageResource(card.getResLogoId());
 
-        cardBack.setBackgroundResource(card.getResCardId());
-        cardFront.setBackgroundResource(card.getResCardId());
+        if(changeCardColor) {
+            cardBack.setBackgroundResource(card.getResCardId());
+            cardFront.setBackgroundResource(card.getResCardId());
+        }
     }
 
 
@@ -299,7 +311,9 @@ public class CreditCardView extends FrameLayout {
 
         paintCard();
 
-        animateChange(cardContainer, cardFront, card.getResCardId());
+        if(showCardAnimation && changeCardColor) {
+            animateChange(cardContainer, cardFront, card.getResCardId());
+        }
     }
 
     public CardSelector selectCard() {
