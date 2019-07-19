@@ -18,6 +18,7 @@
         <attr name="show_card_animation" format="boolean"/>
         <attr name="show_chip_on_card" format="boolean"/>
 
+        <attr name="always_hide_front_cvv" format="boolean"/>
 
     </declare-styleable>
 </resources>
