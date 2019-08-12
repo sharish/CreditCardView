@@ -14,6 +14,9 @@
             <enum name="front" value="1" />
             <enum name="back" value="0" />
         </attr>
+        <attr name="change_card_color" format="boolean"/>
+        <attr name="show_card_animation" format="boolean"/>
+        <attr name="show_chip_on_card" format="boolean"/>
 
 
     </declare-styleable>
