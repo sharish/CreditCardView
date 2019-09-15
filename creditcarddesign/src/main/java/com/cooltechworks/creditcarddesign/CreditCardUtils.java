@@ -46,6 +46,11 @@ public class CreditCardUtils {
         return handleCardNumber(inputCardNumber,SPACE_SEPERATOR);
     }
 
+    public static String handleCardNumber(String inputCardNumber, CardType cardType) {
+
+        return handleCardNumber(inputCardNumber, SPACE_SEPERATOR, cardType);
+    }
+
     public static CardType selectCardType(String cardNumber) {
         Pattern pCardType = Pattern.compile(PATTERN_VISA);
         if(pCardType.matcher(cardNumber).matches())
@@ -67,8 +72,11 @@ public class CreditCardUtils {
     }
 
     public static String handleCardNumber(String inputCardNumber, String seperator) {
+        return handleCardNumber(inputCardNumber, seperator, selectCardType(inputCardNumber));
+    }
+
+    public static String handleCardNumber(String inputCardNumber, String seperator, CardType cardType) {
         String unformattedText = inputCardNumber.replace(seperator, "");
-        CardType cardType = selectCardType(inputCardNumber);
         String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
         StringBuilder sbFormattedNumber = new StringBuilder();
         for(int iIdx = 0, jIdx = 0; (iIdx < format.length()) && (unformattedText.length() > jIdx); iIdx++) {
@@ -82,8 +90,11 @@ public class CreditCardUtils {
     }
 
     public static String formatCardNumber(String inputCardNumber, String seperator) {
+        return formatCardNumber(inputCardNumber, seperator, selectCardType(inputCardNumber));
+    }
+
+    public static String formatCardNumber(String inputCardNumber, String seperator, CardType cardType) {
         String unformattedText = inputCardNumber.replace(seperator, "");
-        CardType cardType = selectCardType(inputCardNumber);
         String format = (cardType == CardType.AMEX_CARD) ? CARD_NUMBER_FORMAT_AMEX : CARD_NUMBER_FORMAT;
         StringBuilder sbFormattedNumber = new StringBuilder();
         for(int iIdx = 0, jIdx = 0; iIdx < format.length(); iIdx++) {

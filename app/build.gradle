@@ -1,17 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 28
 
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true
-        applicationId "com.cooltechworks.checkoutflow"
-        minSdkVersion 10
-        targetSdkVersion 25
+        minSdkVersion 16
+        targetSdkVersion 28
+
         versionCode 2
         versionName "1.1"
+
+        applicationId "com.cooltechworks.checkoutflow"
+
+        vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,6 +24,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':creditcarddesign')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':creditcarddesign')
 }
